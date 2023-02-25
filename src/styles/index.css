@@ -23,5 +23,10 @@ body{
 }
 
 input{
-    border: none; width: 100%;
+    border: none; width: 100%; ;
+}
+
+.iconColor{
+    color: red;
+    font-size: 25px;
 }
