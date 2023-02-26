@@ -12,11 +12,10 @@ const Home = () => {
 			<div className="container">
 				<h1 className="text-center">MY TODOS {imputValue}</h1>
 				<ul className="p-0 mb-0">
-					<li><input 
-					onChange={(e)=>setImputValue(e.target.value)}
-					value = {imputValue}
+					<li><form onSubmit={(e)=>{e.preventDefault()}}><input 
+					onChange={({target:{value}})=>{setImputValue(value);}}
 					type="text" 
-					placeholder="What do you need to do?"></input></li>
+					placeholder="What do you need to do?"></input></form></li>
 					<li>Ordenar el cuarto <TiDelete className="iconColor"></TiDelete></li>
 					<li>Enviar correos <TiDelete className="iconColor"></TiDelete></li>
 					<li>Ir al Gym <TiDelete className="iconColor"></TiDelete></li>
