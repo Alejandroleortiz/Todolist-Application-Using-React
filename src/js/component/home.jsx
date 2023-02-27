@@ -46,4 +46,4 @@ const Home = () => {
 
 export default Home;
 
-// <div>{todos.length} item{todos.length === 1 ? '' : 's'} left</div> agregamos una "s" en la palabra left cuando tengamos mas de un todo
+// <div>{todos.length} item{todos.length === 1 ? '' : 's'} left</div> agregamos una "s" en la palabra item cuando tengamos mas de un todo
