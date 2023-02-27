@@ -30,8 +30,11 @@ const Home = () => {
 					</li> 
 					{todos.map((t, i) => (
 						<li className="border" key={i}>
-							{t}
+							 
+							<div className="d-flex justify-content-between">
+							<span>{t}</span>
 							<TiDelete className="iconColor" onClick={()=>setTodos(todos.filter((t, currentIndex)=>i !== currentIndex))} />
+							</div>
 						</li>
 					))}
 				</ul>
