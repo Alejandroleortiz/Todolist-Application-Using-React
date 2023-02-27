@@ -4,27 +4,43 @@ import { TiDelete } from 'react-icons/ti';
 //create your first component
 const Home = () => {
 
-	const [imputValue, setImputValue] = useState("")
-	const [todos, setTodos] = useState([])
+	const [inputValue, setInputValue] = useState("") // Definir el useState para el imput
+	const [todos, setTodos] = useState([])           // Definir el Usestate para generar los li
+	 
+	const generateTodo = (e) => { //evento para generar los todo
+		e.preventDefault();       //Funcion para prevenir que se recargue la p[agina]
+		setTodos([...todos, inputValue]); // Desplegamos o concatenamos otra forma seria setTodos(todos.concat([inputValue]))
+		setInputValue(""); // Se genera el nuevo string dentro del array
+	}
 	
 	return (
 		<>
 			<div className="container">
-				<h1 className="text-center">MY TODOS {imputValue}</h1>
+				<h1 className="text-center">MY TODOS</h1>
 				<ul className="p-0 mb-0">
-					<li><form onSubmit={(e)=>{e.preventDefault()}}><input 
-					onChange={({target:{value}})=>{setImputValue(value);}}
-					type="text" 
-					placeholder="What do you need to do?"></input></form></li>
-					<li>Ordenar el cuarto <TiDelete className="iconColor"></TiDelete></li>
-					<li>Enviar correos <TiDelete className="iconColor"></TiDelete></li>
-					<li>Ir al Gym <TiDelete className="iconColor"></TiDelete></li>
-					<li>Pagar el alquiler <TiDelete className="iconColor"></TiDelete></li>
+					<li>
+						<form onSubmit={generateTodo}>
+							<input 
+								value={inputValue}
+								onChange={(event) => setInputValue(event.target.value)}
+								type="text" 
+								placeholder="What do you need to do?"
+							/>
+						</form>
+					</li> 
+					{todos.map((t, i) => (
+						<li key={i}>
+							{t}
+							<TiDelete className="iconColor" onClick={()=>setTodos(todos.filter((t, currentIndex)=>i !== currentIndex))} />
+						</li>
+					))}
 				</ul>
-				<div>4 item left</div>
-			</div>
+				<div>{todos.length} item{todos.length === 1 ? '' : 's'} left</div>  
+			</div> 
 		</>
 	);
 };
 
 export default Home;
+
+// <div>{todos.length} item{todos.length === 1 ? '' : 's'} left</div> agregamos una "s" en la palabra left cuando tengamos mas de un todo
