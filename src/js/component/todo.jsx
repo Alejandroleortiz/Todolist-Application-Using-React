@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { TiDelete } from 'react-icons/ti';
 
-//create your first component
-const Home = () => {
+const Todo = () => {
 
 	const [inputValue, setInputValue] = useState("") // Definir el useState para el imput
 	const [todos, setTodos] = useState([])           // Definir el Usestate para generar los li
@@ -44,6 +43,6 @@ const Home = () => {
 	);
 };
 
-export default Home;
+export default Todo;
 
 // <div>{todos.length} item{todos.length === 1 ? '' : 's'} left</div> agregamos una "s" en la palabra item cuando tengamos mas de un todo
