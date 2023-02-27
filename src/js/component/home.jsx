@@ -15,10 +15,10 @@ const Home = () => {
 	
 	return (
 		<>
-			<div className="container">
-				<h1 className="text-center">MY TODOS</h1>
+			<div className="container col-5">
+				<h1 className="text-center">todos</h1>
 				<ul className="p-0 mb-0">
-					<li>
+					<li className="border">
 						<form onSubmit={generateTodo}>
 							<input 
 								value={inputValue}
@@ -29,7 +29,7 @@ const Home = () => {
 						</form>
 					</li> 
 					{todos.map((t, i) => (
-						<li key={i}>
+						<li className="border" key={i}>
 							{t}
 							<TiDelete className="iconColor" onClick={()=>setTodos(todos.filter((t, currentIndex)=>i !== currentIndex))} />
 						</li>
